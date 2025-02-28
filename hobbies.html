@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Martí Guiu - My Hobbies</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .linkedin-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border: 1px solid #333333;
+      color: #333333;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+      width: fit-content;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border: 0;
+      color: #333333;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+      width: fit-content;
+    }
+
+    .linkedin-link:hover {
+      background-color: #b1afaf;
+      color: #000000;
+    }
+
+    .collage-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px; /* Expanded to use more space */
+      height: 700px; /* Taller container for better spread */
+      margin: 30px auto;
+      overflow: hidden;
+    }
+
+    .collage-img {
+      position: absolute;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* Hover effect for interactivity */
+    .collage-img:hover {
+      transform: scale(1.2);
+      z-index: 10;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900 flex justify-center">
+
+  <!-- Main Container -->
+  <main class="container mx-auto max-w-[700px] px-6 py-10">
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-link text-blue-500">⬅️ back</a>
+
+    <!-- Hobbies Section -->
+    <section class="mt-6">
+      <h2 class="text-lg font-medium">my hobbies!</h2>
+      <p class="mt-2">
+        <span class="text-black font-semibold">Sports:</span> Former field hockey player (Spanish league), Currently Basketball & Triathlon. Huge FC Barcelona fan.
+        <span class="text-black font-semibold">Coaching:</span> Hockey coach for 6 yrs (kids 10-18 y/o). Developed leadership and communication skills.
+        <span class="text-black font-semibold">Music:</span> I play the piano, <span class="text-black font-semibold">Science:</span> Journalism, Neuroscience, New technologies.
+        <span class="text-black font-semibold">Reading:</span> Fantasy, SciFi, Thrillers
+        <span class="text-black font-semibold">Chess:</span> 1300 ELO mediocre player, but I enjoy it a lot!!
+        <span class="text-black font-semibold">Culture:</span> Always been very attracted to other cultures and countries, really enjoy traveling.
+        <span class="text-black font-semibold">Pasta:</span> I LOVE PASTA!
+      </p>
+    </section>
+
+    <!-- Collage of images -->
+    <div class="collage-container" id="collage"></div>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const folderPath = "assets/img/hobbies/";
+      const imageNames = [
+        "7f3b2f77-4313-4368-bdef-6919493141a4.JPG",
+        "ad6ddd0f-c610-4886-8628-9ed11528c234.JPG",
+        "chess.png",
+        "DSCF0981.JPEG",
+        "IMG_1240.jpg",
+        "IMG_2236.JPG",
+        "IMG_5486.jpg",
+        "IMG_7072.jpg",
+        "hockey.JPEG",
+        "ski.JPG",
+        "japo.png"
+      ];
+
+      const collage = document.getElementById("collage");
+      const containerWidth = collage.offsetWidth;
+      const containerHeight = collage.offsetHeight;
+      let placedImages = [];
+      let maxOverlapPercentage = 0.15; // Allow max 15% overlap
+
+      function checkOverlap(x, y, width, height) {
+        let overlapArea = 0;
+
+        for (let img of placedImages) {
+          const xOverlap = Math.max(0, Math.min(x + width, img.x + img.width) - Math.max(x, img.x));
+          const yOverlap = Math.max(0, Math.min(y + height, img.y + img.height) - Math.max(y, img.y));
+          overlapArea += xOverlap * yOverlap;
+        }
+
+        const newImageArea = width * height;
+        return (overlapArea / newImageArea) <= maxOverlapPercentage;
+      }
+
+      imageNames.forEach((image, index) => {
+        let img = document.createElement("img");
+        img.src = folderPath + image;
+        img.classList.add("collage-img");
+
+        let size = Math.floor(Math.random() * 100) + 140; // Between 140px and 240px
+        img.style.width = `${size}px`;
+        img.style.height = `${size}px`;
+
+        let maxAttempts = 15; // Limit placement attempts to prevent infinite loops
+        let placed = false;
+        let x, y;
+
+        while (!placed && maxAttempts > 0) {
+          x = Math.floor(Math.random() * (containerWidth - size - 20)) + 10;
+          y = Math.floor(Math.random() * (containerHeight - size - 20)) + 10;
+
+          if (checkOverlap(x, y, size, size)) {
+            placed = true;
+          }
+          maxAttempts--;
+        }
+
+        img.style.left = `${x}px`;
+        img.style.top = `${y}px`;
+
+        // Random rotation for a natural look
+        const rotation = Math.floor(Math.random() * 30) - 15; // -15 to +15 degrees
+        img.style.transform = `rotate(${rotation}deg)`;
+
+        // Store placed image position and size
+        placedImages.push({ x, y, width: size, height: size });
+
+        // Add image to collage
+        collage.appendChild(img);
+      });
+    });
+  </script>
+
+</body>
+</html>

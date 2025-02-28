@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Martí Guiu - Research and projects</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .linkedin-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border: 1px solid #333333;
+      color: #333333;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+      width: fit-content;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border: 0;
+      color: #333333;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+      width: fit-content;
+    }
+
+    .linkedin-link:hover {
+      background-color: #b1afaf;
+      color: #000000;
+    }
+
+    .collage-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px; /* Expanded to use more space */
+      height: 700px; /* Taller container for better spread */
+      margin: 30px auto;
+      overflow: hidden;
+    }
+
+    .collage-img {
+      position: absolute;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* Hover effect for interactivity */
+    .collage-img:hover {
+      transform: scale(1.2);
+      z-index: 10;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900 flex justify-center">
+
+  <!-- Main Container -->
+  <main class="container mx-auto max-w-[700px] px-6 py-10">
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-link text-blue-500">⬅️ back</a>
+
+    <!-- Hobbies Section -->
+    <section class="mt-6">
+      <h2 class="text-lg font-semibold">research and projects!</h2>
+      <!-- List -->
+      <ul class="list-disc mt-2 ml-5 space-y-1">
+        <li>Video & Image Segmentation for a Pharmaceutical Lab - 2021</li>
+        <li>Bitsxlamarato Hackathon Winners - 2020</li>
+        <li>Spotify Explicit Content Predictor - 2020</li>
+      </ul>
+    </section>
+
+  </main>
+
+</body>
+</html>

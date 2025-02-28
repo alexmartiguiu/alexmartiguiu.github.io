@@ -1,86 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Home</title>
-    <style>
-        /* Define a simple, minimalistic and professional style for the website */
-        body {
-            font-family: 'Times New Roman', Times, serif
-            margin: 0;
-            padding: 0;
-            background-color: #f8f8f8;
-            color: #333;
-            text-align: center;
-        }
-        .container {
-            max-width: 700px;
-            margin: auto;
-            padding: 40px;
-        }
-        h1 {
-            font-size: 32px;
-            font-weight: normal;
-        }
-        .nav {
-            margin: 30px 0;
-        }
-        .nav a {
-            display: inline-block;
-            text-decoration: none;
-            color: black;
-            font-size: 16px;
-            padding: 12px 20px;
-            margin: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .nav a:hover {
-            background-color: #eee;
-        }
-        .content {
-            text-align: left;
-            margin-top: 20px;
-        }
-        footer {
-            font-size: 14px;
-            color: #777;
-            margin-top: 40px;
-            padding: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Martí Guiu - About Me</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .linkedin-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border: 1px solid #333333;
+      color: #333333;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+      width: fit-content;
+    }
+
+    .linkedin-link:hover {
+      background-color: #b1afaf;
+      color: #000000;
+    }
+
+    .linkedin-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+
+    /* General logo styling */
+    .logo {
+      display: inline-block;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 18px;
+      height: 18px;
+      margin: -3px 2px;
+    }
+
+    /* Specific logos */
+    .eth { background-image: url('assets/img/imgs_cofounders/ETHZ.png'); width: 80px; }
+    .upc { background-image: url('assets/img/imgs_cofounders/Logo_UPC.svg.png'); width: 25px; height: 25px; margin: -6px 0px; }
+    .epfl { background-image: url('assets/img/imgs_cofounders/EPFL.png'); width: 45px; }
+    .mediapro { background-image: url('assets/img/imgs_cofounders/mediapro.png'); width: 32px; height: 32px; margin: -10px 0px; }
+  </style>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-900 overflow-hidden flex justify-center">
 
-<div class="container">
-    <h1>Your Name</h1>
-    <p>MSc Student at ETH Zurich | Digital Transformation & AI</p>
+  <!-- Main Container (Fixed Width, Less Wide) -->
+  <main class="container mx-auto max-w-[700px] px-6 py-10">
 
-    <!-- Centered Navigation -->
-    <div class="nav">
-        <a href="research.html">📚 Research Interests</a>
-        <a href="cv_zurich.pdf" target="_blank">📄 CV</a>
-        <a href="index.html">🏠 About Me</a>
+    <!-- Profile Section (Fixed Layout) -->
+    <div class="flex flex-nowrap items-center justify-center space-x-6">
+      <!-- ID Image (Fixed Width) -->
+      <div class="w-[250px]">
+        <img src="assets/img/imgs_cofounders/alex_logo.jpeg" alt="Alex Martí Guiu" class="w-full h-auto rounded-lg">
+      </div>
+      <!-- Content (Fixed Width) -->
+      <div class="w-[250px] text-left">
+        <h1 class="text-2xl ml-6 font-semibold">Alex Martí Guiu</h1>
+        <p class="text-md ml-6 mt-2 font-medium">💻 Data Scientist and Engineer </p>
+        <p class="text-md ml-6 mt-1 font-medium">📍 Zürich (Switzerland)</p>
+
+        <!-- Navigation Buttons -->
+        <div class="mt-4 ml-5 flex flex-col space-y-2">
+          <a href="research_projects.html" class="linkedin-link">📚 research & projects</a>
+          <a href="cv_zurich.pdf" class="linkedin-link" target="_blank">📄 CV</a>
+          <a href="hobbies.html" class="linkedin-link">⛷️ hobbies</a>
+        </div>
+      </div>
     </div>
 
     <!-- About Section -->
-    <div class="content">
-        <h2>About Me</h2>
-        <p>I am an MSc student at ETH Zurich, specializing in Management of Digital Transformation, Operations Research, and AI applications in business. My research focuses on leveraging AI for digital innovation in industries such as real estate, wine, and sustainability.</p>
+    <section class="mt-8">
+      <h2 class="text-lg font-medium">about me!</h2>
+      <p class="mt-2">
+        Currently studying <span class="text-gray-600 font-semibold">MSc Management, Technology and Economics</span> at
+        <span class="logo eth"></span>. Previously: <span class="text-gray-600 font-semibold">Deep Learning Engineer</span> for two years at Mediapro
+        <span class="logo mediapro"></span>, <span class="text-gray-600 font-semibold">Research Assistant</span> at the LTS2 lab in École Polytechnique de Lausanne
+        <span class="logo epfl"></span>, 4-year <span class="text-gray-600 font-semibold">BSc Data Science and Engineering</span> at Universitat Politècnica de Catalunya 
+        <span class="logo upc"></span>.
+      </p>
+    </section>
 
-        <h3>Current Work</h3>
-        <ul>
-            <li>AI-powered wine distribution & consumer behavior analysis</li>
-            <li>Eco-friendly beverage innovation: No Plastic Cola</li>
-            <li>Real estate digital transformation & predictive analytics</li>
-        </ul>
-    </div>
+    <section class="mt-3">
+      I am very interested in the intersection of AI, 
+      data science, and business. My ongoing research involves sustainability, deep learning and ethical regulation of
+      AI. Strong technical skills in machine learning, deep learning (particularly computer vision and NLP), data analytics and
+      strategic understanding of business and policy implications.
+    </section>
 
-    <footer>
-        <p>Contact: your.email@example.com</p>
-    </footer>
-</div>
+    <!-- Technical expertise secion-->
+    <section class="mt-4">
+      <h2 class="text-lg font-medium">Technical expertise:</h2>
+      <ul class="list-disc mt-2 ml-5 space-y-1">
+        <li><span class="text-gray-600 font-semibold">Programming languages:</span> Python, R, SQL, C++, HTML, LaTeX.</li>
+        <li><span class="text-gray-600 font-semibold">Libraries:</span> PyTorch, TensorFlow, OpenCV, Pandas, NumPy, Matplotlib, SciPy.</li>
+        <li><span class="text-gray-600 font-semibold">Data Science:</span> Statistics, Regression (LMs, GLMs), Clustering, Graphs, Trees.</li>
+        <li><span class="text-gray-600 font-semibold">Deep Learning:</span> Computer Vision, NLP, Transformers, GANs, custom models.</li>
+        <li><span class="text-gray-600 font-semibold">Software Engineering:</span> Git, Jira, Agile, Docker, Flask, Kubernetes, AWS, Azure.</li>      </ul>
+    </section>
+  
+    <!-- Experience List
+    <section class="mt-8">
+      <h2 class="text-lg font-medium">about me!</h2>
+      <ul class="list-disc mt-2 ml-5 space-y-1">
+        <li>Currently studying <span class="text-gray-600 font-semibold">MSc Management, Technology and Economics</span> at <span class="logo eth"></span>.</li>
+        <li><span class="text-gray-600 font-semibold">Deep Learning Engineer</span> for two years at Mediapro <span class="logo mediapro"></span>.</li>
+        <li><span class="text-gray-600 font-semibold">Research Assistant</span> at the LTS2 in École Polytechnique Fédérale de Lausanne <span class="logo epfl"></span>.</li>
+        <li>4-year <span class="text-gray-600 font-semibold">BSc Data Science and Engineering</span> at Universitat Politècnica de Catalunya <span class="logo upc"></span>.</li>
+      </ul>
+    </section>
+    -->
+
+<!-- Contact Section -->
+<section class="container mx-auto px-6 py-6 text-center">
+  <h2 class="text-xl font-medium">contact:</h2>
+  <div class="flex justify-center items-center space-x-4 py-3">
+    <a href="mailto:alexmartiguiu@gmail.com" class="linkedin-link" target="_blank">
+      <img src="assets/img/logos/email.png" alt="Linkedin" class="linkedin-icon">
+      alexmartiguiu@gmail.com
+    <a href="https://www.linkedin.com/in/alexmartiguiu/" class="linkedin-link" target="_blank">
+      <img src="assets/img/logos/linkedin.png" alt="Linkedin" class="linkedin-icon">
+      Linkedin
+    </a>
+  </div>
+</section>
+
+  </main>
 
 </body>
 </html>
