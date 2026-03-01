@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="module">
+      if (import.meta.env.DEV) {
+        import("react-grab");
+        import("@react-grab/mcp/client");
+      }
+    </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alex Martí Guiu - Portfolio</title>
   <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico">
+  <script>
+    (function() {
+      const search = window.location.search;
+      if (!search.startsWith('?p=')) return;
+
+      const encodedPath = search.slice(3).split('&')[0] || '/';
+      const decodedPath = decodeURIComponent(encodedPath);
+      const query = search.includes('&q=') ? search.split('&q=')[1] : '';
+      const queryPart = query ? `?${query.replace(/~and~/g, '&')}` : '';
+      const newUrl = `${decodedPath}${queryPart}${window.location.hash}`;
+
+      window.history.replaceState(null, '', newUrl);
+    })();
+  </script>
 </head>
 <body class="bg-gray-100 text-gray-900">
   <div id="root"></div>

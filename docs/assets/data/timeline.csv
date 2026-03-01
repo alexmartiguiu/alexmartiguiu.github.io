@@ -1,0 +1,9 @@
+id,type,title,subtitle,start,end,ongoing,color,link,sort_order
+exp-001,education,BSc Data Science and Engineering,Universitat Politècnica de Catalunya,2018-09,2022-06,false,#4f46e5,https://www.upc.edu/en,10
+exp-002,work,Deep Learning Engineer,Mediapro,2022-01,2024-01,false,#16a34a,,30
+exp-003,research,Research Assistant,LTS2 Lab · EPFL,2021-06,2021-12,false,#0891b2,,20
+exp-004,education,"MSc Management, Technology and Economics",ETH Zürich,2024-09,2026-06,true,#7c3aed,https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/management-technology-and-economics.html,40
+exp-005,project,Datathon ETH Winner,Orderfox Challenge,2025-03,2025-03,false,#ea580c,https://www.datathon.ai/,50
+exp-006,project,BitsxLaMarató Winner,COVID Cough Classifier Bot,2020-12,2020-12,false,#ea580c,https://github.com/CarlOwOs/Apolo-COVID-cough-predictor,5
+exp-007,research,ICCV Paris Attendance,Industry representative for Mediapro,2023-10,2023-10,false,#0891b2,,25
+exp-008,project,Spotify Explicit Content Predictor,R-based ML app,2020-05,2020-07,false,#ea580c,https://github.com/megaelius/SWERING/blob/master/Abad-Fuentes-Marti/report.pdf,4

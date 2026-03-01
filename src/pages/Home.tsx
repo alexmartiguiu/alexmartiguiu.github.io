@@ -21,6 +21,9 @@ export default function Home() {
               <Link to="/research" className="linkedin-link">
                 <span className="logo research"></span> Research & Projects
               </Link>
+              <Link to="/timeline" className="linkedin-link">
+                <span className="logo research"></span> Timeline
+              </Link>
               <a href="/assets/cv/cv_alexmartiguiu.pdf" className="linkedin-link" target="_blank" rel="noreferrer">
                 <span className="logo cv"></span> CV
               </a>
@@ -36,7 +39,8 @@ export default function Home() {
           <h2 className="text-lg font-semibold">About me!</h2>
           <p className="mt-2">
             Currently studying <span className="text-gray-600 font-semibold">MSc Management, Technology and Economics</span> at
-            <span className="logo eth"></span>. Previously: <span className="text-gray-600 font-semibold">Deep Learning Engineer</span> for two years at Mediapro
+            <span className="logo eth"></span>. Previously: <span className="text-gray-600 font-semibold">Data Scientist</span> at Gieni AI (Zurich)
+            <span className="logo gieni"></span>, <span className="text-gray-600 font-semibold">Deep Learning Engineer</span> for two years at Mediapro
             <span className="logo mediapro"></span>, <span className="text-gray-600 font-semibold">Research Assistant</span> at the LTS2 lab in École Polytechnique Fédérale de Lausanne
             <span className="logo epfl"></span>, 4-year <span className="text-gray-600 font-semibold">BSc Data Science and Engineering</span> at Universitat Politècnica de Catalunya 
             <span className="logo upc"></span>.

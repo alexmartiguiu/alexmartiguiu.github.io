@@ -35,6 +35,7 @@ The site will be available at `http://localhost:5173`
 
 - **Home** - About me page
 - **Research** - Research & Projects
+- **Timeline** - Data-driven visual timeline loaded from CSV
 - **Hobbies** - Hobbies with photo collage
 
 ## Building for Deployment
@@ -67,14 +68,42 @@ Deployment is automated via GitHub Actions on push to `main`:
 │   └── pages/
 │       ├── Home.tsx       # About page
 │       ├── Research.tsx   # Research & Projects page
+│       ├── Timeline.tsx   # Timeline page (CSV-driven)
 │       └── Hobbies.tsx    # Hobbies page with photo collage
-├── vite.config.ts         # Vite configuration (React + output to docs/)
+├── vite.config.js         # Vite configuration (React + output to docs/)
 ├── tsconfig.json          # TypeScript config
 ├── tailwind.config.js     # Tailwind config
 ├── postcss.config.js      # PostCSS config (autoprefixer)
+├── public/
+│   ├── assets/
+│   │   └── data/
+│   │       └── timeline.csv  # Editable timeline rows
+│   └── 404.html              # SPA fallback for GitHub Pages deep links
 ├── docs/                  # Production build (tracked for GitHub Pages)
 └── assets/                # Images and other static files
 ```
+
+## Timeline Data Editing
+
+The timeline page reads data from `public/assets/data/timeline.csv`.
+
+Required columns:
+
+- `id` unique row id
+- `type` category (for example `work`, `education`, `research`, `project`)
+- `title` main label shown on the bar
+- `start` start month in `YYYY-MM`
+- `end` end month in `YYYY-MM` (or keep with `ongoing=true`)
+- `ongoing` `true` or `false`
+- `color` any CSS color (`#16a34a`, `rgb(...)`, etc.)
+
+Optional columns:
+
+- `subtitle`
+- `link`
+- `sort_order`
+
+After editing the CSV, run `npm run dev` (or rebuild/deploy) to see updates.
 
 ## Features
 
@@ -88,7 +117,6 @@ Deployment is automated via GitHub Actions on push to `main`:
 
 ## Future Enhancements
 
-- Add timeline component for work experience
 - Integrate animations with framer-motion
 - Add interactive data visualizations
 - Blog section with markdown support

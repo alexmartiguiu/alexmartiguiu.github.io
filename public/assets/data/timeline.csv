@@ -1,0 +1,8 @@
+id,type,title,subtitle,start,end,ongoing,color,link,logo,sort_order
+exp-001,education,BSc Data Science and Engineering,Universitat Politècnica de Catalunya,2018-09,2022-02,false,#4f46e5,https://www.upc.edu/en,,10
+exp-002,work,Deep Learning Engineer,Mediapro,2022-08,2024-07,false,#16a34a,,,30
+exp-003,research,Research Assistant,EPFL,2022-02,2022-07,false,#0891b2,,,20
+exp-004,education,"MSc MTEC",ETH Zürich,2024-09,2026-06,true,#7c3aed,https://ethz.ch/en/studies/master/degree-programmes/engineering-sciences/management-technology-and-economics.html,,40
+exp-005,project,Datathon ETH Winner,Orderfox Challenge,2025-03,2025-03,false,#ea580c,https://www.datathon.ai/,,50
+exp-006,work,Data Science and Full Stack,Gieni,2025-09,2026-05,true,#db2777,,,60
+
