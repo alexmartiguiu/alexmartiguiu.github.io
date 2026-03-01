@@ -1,0 +1,83 @@
+#title {
+  color: black;
+  /* Font family from file */
+  /* font-family: 'ZTGlora', sans-serif; */
+}
+
+@font-face {
+  font-family: "ZTGlora";
+  src: url("../fonts/ZTGloraPro-Light.otf") format("truetype");
+}
+
+#background-image-section {
+  background-image: url("../img/architecture-light.jpg");
+}
+
+/* #background-image-section {
+  background-image: url("../img/altair_plots_example.png");
+} */
+
+#see-more-button {
+  color: #6190b0;
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#contact-submit-button {
+  background-color: #a00000;
+  color: white;
+}
+
+.data-highlight {
+  display: inline-block;
+  background: linear-gradient(to bottom, #ffff00 0%, #ffcc00 100%);
+  padding: 0 5px;
+  border-radius: 5px;
+  vertical-align: middle;
+}
+
+.inline-data-image {
+  height: 1em;
+  vertical-align: baseline;
+  filter: drop-shadow(1px 1px 1px rgba(255, 0, 0, 0.5));
+}
+
+.linkedin-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 12px;
+  border: 1px solid #333333;
+  /* border invisible */
+  color: #636262;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 10px; /* Adjust this value to move the link down */
+}
+
+.linkedin-link:hover {
+  /*grey hover */
+  background-color: #706e6e; 
+  color: #ffffff;
+}
+
+.linkedin-icon {
+  width: 20px; /* Adjust the size as needed */
+  height: 20px; /* Adjust the size as needed */
+  margin-left: 8px; /* Space between email and icon */
+}
+
+.flex {
+  display: flex;
+}
+
+.space-x-4 > :not(:last-child) {
+  margin-right: 1rem; /* Adjust spacing between elements */
+}
