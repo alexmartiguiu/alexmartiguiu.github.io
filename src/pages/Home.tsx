@@ -24,7 +24,7 @@ export default function Home() {
               <Link to="/research" className="linkedin-link text-sm">
                 <span className="logo research"></span> Research
               </Link>
-              <a href="/assets/cv/cv_alexmartiguiu.pdf" className="linkedin-link text-sm" target="_blank" rel="noreferrer">
+              <a href="/assets/cv/cv_alexmarti_2026.pdf" className="linkedin-link text-sm" target="_blank" rel="noreferrer">
                 <span className="logo cv"></span> CV
               </a>
               <Link to="/hobbies" className="linkedin-link text-sm">
