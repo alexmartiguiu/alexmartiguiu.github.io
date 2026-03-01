@@ -1,0 +1,96 @@
+/* Global Styles - Portfolio */
+
+.linkedin-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 6px;
+  border: 1px solid #777676;
+  color: #333333;
+  border-radius: 0px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  width: fit-content;
+}
+
+.linkedin-link:hover {
+  background-color: #b1afaf;
+  color: #000000;
+}
+
+.linkedin-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+/* General logo styling */
+.logo {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 18px;
+  height: 18px;
+  margin: -3px 2px;
+}
+
+/* Specific logos */
+.eth { background-image: url('assets/img/imgs_cofounders/ETHZ.png'); width: 88px; }
+.upc { background-image: url('assets/img/imgs_cofounders/Logo_UPC.svg.png'); width: 25px; height: 25px; margin: -6px 0px; }
+.epfl { background-image: url('assets/img/imgs_cofounders/EPFL.png'); width: 45px; }
+.mediapro { background-image: url('assets/img/imgs_cofounders/mediapro.png'); width: 32px; height: 32px; margin: -10px 0px; }
+.hobbies { background-image: url('assets/img/logos/ski.png'); width: 32px; height: 34px; margin: -10px 0px; }
+.cv { background-image: url('assets/img/logos/cv.png'); width: 32px; height: 25px; margin: -10px 0px; }
+.research { background-image: url('assets/img/logos/research_logo.png'); width: 25px; height: 32px; margin: -10px 4px; }
+
+/* Back link styling */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border: 0;
+  color: #333333;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  width: fit-content;
+}
+
+/* Small link styling */
+.small-link {
+  display: inline;
+  padding: 2px 6px;
+  border: 1px solid #333333;
+  color: #333333;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 0.8em;
+  margin-left: 4px;
+}
+
+.small-link:hover {
+  background-color: #b1afaf;
+  color: #000000;
+}
+
+/* Collage styling */
+.collage-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 700px;
+  margin: 30px auto;
+  overflow: hidden;
+}
+
+.collage-img {
+  position: absolute;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.collage-img:hover {
+  transform: scale(1.2);
+  z-index: 10;
+}

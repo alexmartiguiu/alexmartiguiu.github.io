@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for your portfolio */
+.linkedin-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 6px;
+  border: 1px solid #777676;
+  color: #333333;
+  border-radius: 0px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  width: fit-content;
+}
+
+.linkedin-link:hover {
+  background-color: #b1afaf;
+  color: #000000;
+}
+
+.linkedin-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+/* Logo styling */
+.logo {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 18px;
+  height: 18px;
+  margin: -3px 2px;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #f7df1eaa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
