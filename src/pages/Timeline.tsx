@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Papa from 'papaparse'
+import { ExperienceModal } from './ExperienceModal'
 
 type TimelineRow = {
   id?: string
@@ -14,6 +15,9 @@ type TimelineRow = {
   link?: string
   logo?: string
   sort_order?: string
+  detailed_experience?: string
+  achievements?: string
+  links?: string
 }
 
 type TimelineItem = {
@@ -30,6 +34,9 @@ type TimelineItem = {
   link: string
   logoClass: string
   sortOrder: number
+  detailed_experience?: string
+  achievements?: string
+  links?: string
 }
 
 const FALLBACK_COLORS: Record<string, string> = {
@@ -81,10 +88,11 @@ function barLeftPercent(start: number, minMonth: number, maxMonth: number): numb
   return ((start - minMonth) / totalSpan) * 100
 }
 
-export default function Timeline() {
+export function Timeline() {
   const [items, setItems] = useState<TimelineItem[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
+  const [selectedItem, setSelectedItem] = useState<TimelineItem | null>(null)
 
   useEffect(() => {
     const loadTimeline = async () => {
@@ -140,8 +148,9 @@ export default function Timeline() {
               color: normalizeColor(row.color, type),
               link: (row.link ?? '').trim(),
               logoClass: (row.logo ?? '').trim(),
-              sortOrder: Number(row.sort_order ?? Number.NaN),
-            }
+              sortOrder: Number(row.sort_order ?? Number.NaN),              detailed_experience: row.detailed_experience,
+              achievements: row.achievements,
+              links: row.links,            }
           })
           .filter((item): item is TimelineItem => item !== null)
           .sort((a, b) => {
@@ -203,7 +212,7 @@ export default function Timeline() {
         seen.set(item.type, item.color)
       }
     }
-    return Array.from(seen.entries())
+    return Array.from(seen.entries()).filter(([type]) => type === 'education' || type === 'work')
   }, [items])
 
   const yearColumns = useMemo(
@@ -212,95 +221,79 @@ export default function Timeline() {
   )
 
   return (
-    <div className="flex justify-center">
-      <main className="container mx-auto max-w-[980px] px-6 py-10">
-        <Link to="/" className="back-link text-blue-500">
-          ← back
-        </Link>
+    <section className="mt-4">
+      {isLoading ? (
+        <div className="timeline-state">Loading timeline...</div>
+      ) : error ? (
+        <div className="timeline-state text-red-600">{error}</div>
+      ) : (
+        <>
+          <div className="timeline-content">
+            <div className="timeline-gridlines" aria-hidden="true" style={{ gridTemplateColumns: yearColumns }}>
+              {axis.years.map((year) => (
+                <div key={year} className="timeline-gridline" />
+              ))}
+            </div>
 
-        <section className="mt-6">
-          <h2 className="text-2xl font-bold">Experience Timeline</h2>
-        </section>
+            {items.map((item) => {
+              const left = barLeftPercent(item.startMonth, axis.minMonth, axis.maxMonth)
+              const width = barWidthPercent(item.startMonth, item.endMonth, axis.minMonth, axis.maxMonth)
 
-        {isLoading ? (
-          <section className="timeline-state mt-8">Loading timeline...</section>
-        ) : error ? (
-          <section className="timeline-state mt-8 text-red-600">{error}</section>
-        ) : (
-          <section className="mt-8">
-            <div className="timeline-content">
-              <div className="timeline-gridlines" aria-hidden="true" style={{ gridTemplateColumns: yearColumns }}>
-                {axis.years.map((year) => (
-                  <div key={year} className="timeline-gridline" />
-                ))}
-              </div>
-
-              {items.map((item) => {
-                const left = barLeftPercent(item.startMonth, axis.minMonth, axis.maxMonth)
-                const width = barWidthPercent(item.startMonth, item.endMonth, axis.minMonth, axis.maxMonth)
-
-                return (
-                  <div className="timeline-row" key={item.id}>
-                    {item.link ? (
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={`timeline-bar ${item.ongoing ? 'active-bar' : ''}`}
-                        style={{ left: `${left}%`, width: `${width}%` }}
-                        aria-label={`${item.title} (${item.startRaw} to ${item.endRaw})`}
-                      >
-                        <span className="timeline-bar-text">
-                          <span className="timeline-bar-label">{item.title}</span>
-                          {item.subtitle || item.logoClass ? (
-                            <span className="timeline-bar-subtitle timeline-subtitle-inline">
-                              {item.subtitle ? <span>{item.subtitle}</span> : null}
-                              {item.logoClass ? <span className={`logo ${item.logoClass}`} aria-hidden="true" /> : null}
-                            </span>
-                          ) : null}
+              return (
+                <div className="timeline-row" key={item.id}>
+                  <div
+                    className={`timeline-bar ${item.ongoing ? 'active-bar' : ''} cursor-pointer`}
+                    data-type={item.type}
+                    style={{ left: `${left}%`, width: `${width}%` }}
+                    onClick={() => setSelectedItem(item)}
+                    aria-label={`${item.title} (${item.startRaw} to ${item.endRaw}) - click for details`}
+                  >
+                    <span className="timeline-bar-text">
+                      <span className="timeline-bar-label">{item.title}</span>
+                      {item.subtitle || item.logoClass ? (
+                        <span className="timeline-bar-subtitle timeline-subtitle-inline">
+                          {item.subtitle ? <span>{item.subtitle}</span> : null}
+                          {item.logoClass ? <span className={`logo ${item.logoClass}`} aria-hidden="true" /> : null}
                         </span>
-                      </a>
-                    ) : (
-                      <div
-                        className={`timeline-bar ${item.ongoing ? 'active-bar' : ''}`}
-                        style={{ left: `${left}%`, width: `${width}%` }}
-                        aria-label={`${item.title} (${item.startRaw} to ${item.endRaw})`}
-                      >
-                        <span className="timeline-bar-text">
-                          <span className="timeline-bar-label">{item.title}</span>
-                          {item.subtitle || item.logoClass ? (
-                            <span className="timeline-bar-subtitle timeline-subtitle-inline">
-                              {item.subtitle ? <span>{item.subtitle}</span> : null}
-                              {item.logoClass ? <span className={`logo ${item.logoClass}`} aria-hidden="true" /> : null}
-                            </span>
-                          ) : null}
-                        </span>
-                      </div>
-                    )}
+                      ) : null}
+                    </span>
                   </div>
-                )
-              })}
-            </div>
+                </div>
+              )
+            })}
+          </div>
 
-            <div className="timeline-axis" aria-hidden="true" style={{ gridTemplateColumns: yearColumns }}>
-                {axis.years.map((year) => (
-                  <span className="timeline-axis-label" key={year}>{formatAxisYear(year)}</span>
-                ))}
-            </div>
+          <div className="timeline-axis" aria-hidden="true" style={{ gridTemplateColumns: yearColumns }}>
+            {axis.years.map((year) => (
+              <span className="timeline-axis-label" key={year}>{formatAxisYear(year)}</span>
+            ))}
+          </div>
 
-            {typeLegend.length > 0 ? (
-              <div className="timeline-legend mt-4">
-                {typeLegend.map(([type, color]) => (
-                  <span className="timeline-legend-item" key={type}>
+          {typeLegend.length > 0 ? (
+            <div className="flex mt-4">
+              <div className="timeline-legend">
+                {typeLegend.map(([type]) => (
+                  <span className="timeline-legend-item" key={type} data-type={type}>
                     <span className="timeline-legend-swatch" aria-hidden="true" />
                     {type}
                   </span>
                 ))}
               </div>
-            ) : null}
-          </section>
-        )}
-      </main>
-    </div>
+              <div className="timeline-legend-status ml-auto mr-0">
+                <span className="timeline-legend-status-item">
+                  <span className="timeline-legend-status-swatch" aria-hidden="true" />
+                  Ongoing
+                </span>
+              </div>
+            </div>
+          ) : null}
+
+          <ExperienceModal 
+            item={selectedItem} 
+            onClose={() => setSelectedItem(null)} 
+          />
+        </>
+      )}
+    </section>
   )
 }

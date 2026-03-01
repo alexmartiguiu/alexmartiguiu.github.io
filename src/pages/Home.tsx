@@ -1,80 +1,88 @@
 import { Link } from 'react-router-dom'
+import { Timeline } from './Timeline'
 
 export default function Home() {
   return (
     <div className="flex justify-center">
-      <main className="container mx-auto max-w-[700px] px-6 py-10">
-        {/* Profile Section */}
-        <div className="flex flex-nowrap items-center justify-center space-x-6">
-          {/* ID Image */}
-          <div className="w-[250px]">
-            <img src="/assets/img/imgs_cofounders/alex_logo_japan.JPG" alt="Alex Martí Guiu" className="w-full h-auto" />
+      <main className="container mx-auto max-w-[900px] px-6 py-10">
+        {/* Top Profile & Bio Row */}
+        <div className="flex flex-col md:flex-row gap-8 items-start">
+          {/* 1. Profile Image (Far Left) */}
+          <div className="w-[180px] flex-shrink-0">
+            <img src="/assets/img/imgs_cofounders/alex_logo_japan.JPG" alt="Alex Martí Guiu" className="w-full h-auto rounded-lg shadow-sm" />
           </div>
-          {/* Content */}
-          <div className="w-[250px] text-left">
-            <h1 className="text-2xl ml-6 font-semibold">Alex Martí Guiu</h1>
-            <p className="text-md ml-6 mt-2 font-medium">💻 Data Scientist and Engineer </p>
-            <p className="text-md ml-6 mt-1 font-medium">📍 Zürich (Switzerland)</p>
 
-            {/* Navigation Buttons */}
-            <div className="mt-4 ml-5 flex flex-col space-y-2">
-              <Link to="/research" className="linkedin-link">
-                <span className="logo research"></span> Research & Projects
+          {/* 2. Basic Info & Links (Center) */}
+          <div className="flex flex-col flex-shrink-0 pt-1">
+            <div className="text-left mb-6">
+              <h1 className="text-xl font-semibold whitespace-nowrap">Alex Martí Guiu</h1>
+              <p className="text-sm mt-1 font-medium italic text-gray-600">💻 Data Scientist & Engineer</p>
+              <p className="text-sm mt-0.5 font-medium italic text-gray-600">📍 Zürich (Switzerland)</p>
+            </div>
+            
+            <div className="flex flex-col space-y-2">
+              <Link to="/research" className="linkedin-link text-sm">
+                <span className="logo research"></span> Research
               </Link>
-              <Link to="/timeline" className="linkedin-link">
-                <span className="logo research"></span> Timeline
-              </Link>
-              <a href="/assets/cv/cv_alexmartiguiu.pdf" className="linkedin-link" target="_blank" rel="noreferrer">
+              <a href="/assets/cv/cv_alexmartiguiu.pdf" className="linkedin-link text-sm" target="_blank" rel="noreferrer">
                 <span className="logo cv"></span> CV
               </a>
-              <Link to="/hobbies" className="linkedin-link">
+              <Link to="/hobbies" className="linkedin-link text-sm">
                 <span className="logo hobbies"></span> Hobbies
               </Link>
             </div>
           </div>
+
+          {/* 3. About Me (Far Right) */}
+          <div className="flex-grow pt-1 border-l pl-8 border-gray-200 min-w-[300px]">
+            <h2 className="text-lg font-semibold mb-2">About me!</h2>
+            <p className="text-md leading-relaxed">
+              Currently studying <span className="text-gray-600 font-semibold">MSc Management, Technology and Economics</span> at
+              <span className="logo eth"></span>. Previously: <span className="text-gray-600 font-semibold">Data Scientist</span> at Gieni AI (Zürich)
+              <span className="logo gieni"></span>, <span className="text-gray-600 font-semibold">Deep Learning Engineer</span> for two years at Mediapro
+              <span className="logo mediapro"></span>, <span className="text-gray-600 font-semibold">Research Assistant</span> at the LTS2 lab in École Polytechnique Fédérale de Lausanne
+              <span className="logo epfl"></span>, 4-year <span className="text-gray-600 font-semibold">BSc Data Science and Engineering</span> at Universitat Politècnica de Catalunya 
+              <span className="logo upc"></span>.
+            </p>
+          </div>
         </div>
 
-        {/* About Section */}
-        <section className="mt-8">
-          <h2 className="text-lg font-semibold">About me!</h2>
-          <p className="mt-2">
-            Currently studying <span className="text-gray-600 font-semibold">MSc Management, Technology and Economics</span> at
-            <span className="logo eth"></span>. Previously: <span className="text-gray-600 font-semibold">Data Scientist</span> at Gieni AI (Zurich)
-            <span className="logo gieni"></span>, <span className="text-gray-600 font-semibold">Deep Learning Engineer</span> for two years at Mediapro
-            <span className="logo mediapro"></span>, <span className="text-gray-600 font-semibold">Research Assistant</span> at the LTS2 lab in École Polytechnique Fédérale de Lausanne
-            <span className="logo epfl"></span>, 4-year <span className="text-gray-600 font-semibold">BSc Data Science and Engineering</span> at Universitat Politècnica de Catalunya 
-            <span className="logo upc"></span>.
+        {/* Full-width Bio Block */}
+        <section className="mt-6">
+          <p className="text-md leading-relaxed">
+            I am very interested in the intersection of AI, data science, and business. My ongoing research involves multimodality, deep learning and agents for Neuroscience, Human Rights and Climate. Strong technical skills in machine learning (particularly computer vision and NLP), agents,  data analytics and strategic understanding of business and product.
           </p>
         </section>
 
-        <section className="mt-3">
-          I am very interested in the intersection of AI, 
-          data science, and business. My ongoing research involves sustainability, deep learning and ethical regulation of
-          AI. Strong technical skills in machine learning (particularly computer vision and NLP), data analytics and
-          strategic understanding of business and policy implications.
-        </section>
+        {/* Timeline Section */}
+        <div className="mt-8 px-4">
+          <Timeline />
+        </div>
 
         {/* Technical expertise section */}
-        <section className="mt-4">
-          <h2 className="text-lg font-semibold">Technical expertise:</h2>
-          <ul className="list-disc mt-2 ml-5 space-y-1">
-            <li><span className="text-gray-600 font-semibold">Programming languages:</span> Python, R, SQL, C++, HTML, LaTeX, SPSS, STATA.</li>
-            <li><span className="text-gray-600 font-semibold">Libraries:</span> PyTorch, TensorFlow, LangChain, OpenCV, Pandas, Matplotlib, SciPy.</li>
-            <li><span className="text-gray-600 font-semibold">Data Science:</span> Statistics, Regression (LMs, GLMs), Clustering, Graphs, Trees.</li>
-            <li><span className="text-gray-600 font-semibold">Deep Learning:</span> Computer Vision, NLP, RAG, Agents, custom models.</li>
-            <li><span className="text-gray-600 font-semibold">Software Engineering:</span> Git, Jira, Agile, Docker, Flask, Kubernetes, AWS, Azure.</li>
-          </ul>
+        <section className="mt-12">
+          <div>
+            <h2 className="text-lg font-semibold border-b border-gray-100 pb-2">Technical expertise:</h2>
+            <ul className="list-disc mt-4 ml-5 space-y-1 text-md">
+              <li><span className="text-gray-600 font-semibold">Languages:</span> English (C2), Spanish (Native), French (B1), Catalan (Native).</li>
+              <li><span className="text-gray-600 font-semibold">Programming:</span> Python, R, C++, SQL, MATLAB, TypeScript, JavaScript, React, NextJS, SPSS, Stata, LaTeX.</li>
+              <li><span className="text-gray-600 font-semibold">ML & Libraries:</span> PyTorch, TensorFlow, NumPy, Pandas, SciPy, OpenCV, Hugging Face, W&B, LangChain, Langraph.</li>
+              <li><span className="text-gray-600 font-semibold">Data Science:</span> Statistics, Regression (LMs, GLMs), Clustering, Graphs, Trees, A/B Testing, ETL, Data Visualization, Time Series, Hypothesis Testing.</li>
+              <li><span className="text-gray-600 font-semibold">Deep Learning:</span> Computer Vision, NLP, RAG, Multi-Agent Systems, Contrastive Learning, GANs, custom models.</li>
+              <li><span className="text-gray-600 font-semibold">Software Engineering:</span> Git, Jira, Agile, Docker, FastAPI, Flask, Kubernetes, APIs, OOP, Unit Testing, AWS, Azure.</li>
+              <li><span className="text-gray-600 font-semibold">Agentic AI:</span> Cursor, Claude Code, Codex (over 1 year of daily experience in SWE roles).</li>
+            </ul>
+          </div>
         </section>
 
         {/* Contact Section */}
-        <section className="container mx-auto px-6 py-6 text-center hidden sm:block">
-          <h2 className="text-lg font-medium">Contact:</h2>
-          <div className="flex justify-center items-center space-x-4 py-3">
-            <a href="mailto:alexmartiguiu@gmail.com" className="linkedin-link" target="_blank" rel="noreferrer">
+        <section className="mt-12 pt-8 border-t border-gray-200 text-center">
+          <div className="flex justify-center items-center space-x-8">
+            <a href="mailto:alexmartiguiu@gmail.com" className="linkedin-link text-sm" target="_blank" rel="noreferrer">
               <img src="/assets/img/logos/email.png" alt="Email" className="linkedin-icon" />
               alexmartiguiu@gmail.com
             </a>
-            <a href="https://www.linkedin.com/in/alexmartiguiu/" className="linkedin-link" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/in/alexmartiguiu/" className="linkedin-link text-sm" target="_blank" rel="noreferrer">
               <img src="/assets/img/logos/linkedin.png" alt="Linkedin" className="linkedin-icon" />
               Linkedin
             </a>
