@@ -8,7 +8,7 @@ Modern portfolio website built with **React + TypeScript + Vite + Tailwind CSS**
 - **TypeScript** - Type-safe development
 - **Vite** - Lightning-fast build tool
 - **React Router** - SPA navigation
-- **Tailwind CSS** - Utility-first styling (via CDN)
+- **Tailwind CSS** - Utility-first styling (via PostCSS)
 - **GitHub Pages** - Static hosting
 
 ## Setup
@@ -47,9 +47,12 @@ npm run build
 
 ## Deployment
 
-1. Build: `npm run build`
-2. Commit and push (`docs/` folder is tracked)
-3. GitHub Pages automatically serves from `docs/`
+Deployment is automated via GitHub Actions on push to `main`:
+
+1. `npm ci`
+2. `npm run build` (outputs to `docs/`)
+3. Upload built `docs/` artifact
+4. Deploy artifact with `actions/deploy-pages`
 
 **Live site:** https://alexmartiguiu.github.io
 
@@ -67,7 +70,7 @@ npm run build
 │       └── Hobbies.tsx    # Hobbies page with photo collage
 ├── vite.config.ts         # Vite configuration (React + output to docs/)
 ├── tsconfig.json          # TypeScript config
-├── tailwind.config.js     # Tailwind config (CDN in HTML)
+├── tailwind.config.js     # Tailwind config
 ├── postcss.config.js      # PostCSS config (autoprefixer)
 ├── docs/                  # Production build (tracked for GitHub Pages)
 └── assets/                # Images and other static files

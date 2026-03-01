@@ -8,7 +8,7 @@ export default function Home() {
         <div className="flex flex-nowrap items-center justify-center space-x-6">
           {/* ID Image */}
           <div className="w-[250px]">
-            <img src="assets/img/imgs_cofounders/alex_logo_japan.JPG" alt="Alex Martí Guiu" className="w-full h-auto" />
+            <img src="/assets/img/imgs_cofounders/alex_logo_japan.JPG" alt="Alex Martí Guiu" className="w-full h-auto" />
           </div>
           {/* Content */}
           <div className="w-[250px] text-left">
@@ -21,7 +21,7 @@ export default function Home() {
               <Link to="/research" className="linkedin-link">
                 <span className="logo research"></span> Research & Projects
               </Link>
-              <a href="assets/cv/cv_alexmartiguiu.pdf" className="linkedin-link" target="_blank" rel="noreferrer">
+              <a href="/assets/cv/cv_alexmartiguiu.pdf" className="linkedin-link" target="_blank" rel="noreferrer">
                 <span className="logo cv"></span> CV
               </a>
               <Link to="/hobbies" className="linkedin-link">
@@ -67,11 +67,11 @@ export default function Home() {
           <h2 className="text-lg font-medium">Contact:</h2>
           <div className="flex justify-center items-center space-x-4 py-3">
             <a href="mailto:alexmartiguiu@gmail.com" className="linkedin-link" target="_blank" rel="noreferrer">
-              <img src="assets/img/logos/email.png" alt="Email" className="linkedin-icon" />
+              <img src="/assets/img/logos/email.png" alt="Email" className="linkedin-icon" />
               alexmartiguiu@gmail.com
             </a>
             <a href="https://www.linkedin.com/in/alexmartiguiu/" className="linkedin-link" target="_blank" rel="noreferrer">
-              <img src="assets/img/logos/linkedin.png" alt="Linkedin" className="linkedin-icon" />
+              <img src="/assets/img/logos/linkedin.png" alt="Linkedin" className="linkedin-icon" />
               Linkedin
             </a>
           </div>

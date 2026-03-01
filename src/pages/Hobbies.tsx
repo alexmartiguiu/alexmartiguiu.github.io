@@ -5,7 +5,7 @@ export default function Hobbies() {
   const collageRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const folderPath = "assets/img/hobbies/"
+    const folderPath = "/assets/img/hobbies/"
     const imageNames = [
       "7f3b2f77-4313-4368-bdef-6919493141a4.JPG",
       "ad6ddd0f-c610-4886-8628-9ed11528c234.JPG",

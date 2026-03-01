@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* Global Styles - Portfolio */
 
 .linkedin-link {
@@ -35,13 +37,13 @@
 }
 
 /* Specific logos */
-.eth { background-image: url('assets/img/imgs_cofounders/ETHZ.png'); width: 88px; }
-.upc { background-image: url('assets/img/imgs_cofounders/Logo_UPC.svg.png'); width: 25px; height: 25px; margin: -6px 0px; }
-.epfl { background-image: url('assets/img/imgs_cofounders/EPFL.png'); width: 45px; }
-.mediapro { background-image: url('assets/img/imgs_cofounders/mediapro.png'); width: 32px; height: 32px; margin: -10px 0px; }
-.hobbies { background-image: url('assets/img/logos/ski.png'); width: 32px; height: 34px; margin: -10px 0px; }
-.cv { background-image: url('assets/img/logos/cv.png'); width: 32px; height: 25px; margin: -10px 0px; }
-.research { background-image: url('assets/img/logos/research_logo.png'); width: 25px; height: 32px; margin: -10px 4px; }
+.eth { background-image: url('/assets/img/imgs_cofounders/ETHZ.png'); width: 88px; }
+.upc { background-image: url('/assets/img/imgs_cofounders/Logo_UPC.svg.png'); width: 25px; height: 25px; margin: -6px 0px; }
+.epfl { background-image: url('/assets/img/imgs_cofounders/EPFL.png'); width: 45px; }
+.mediapro { background-image: url('/assets/img/imgs_cofounders/mediapro.png'); width: 32px; height: 32px; margin: -10px 0px; }
+.hobbies { background-image: url('/assets/img/logos/ski.png'); width: 32px; height: 34px; margin: -10px 0px; }
+.cv { background-image: url('/assets/img/logos/cv.png'); width: 32px; height: 25px; margin: -10px 0px; }
+.research { background-image: url('/assets/img/logos/research_logo.png'); width: 25px; height: 32px; margin: -10px 4px; }
 
 /* Back link styling */
 .back-link {

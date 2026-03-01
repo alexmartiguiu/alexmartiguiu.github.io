@@ -62,7 +62,7 @@ export default function Research() {
         {/* Image section */}
         <section className="mt-20">
           <div className="w-full h-auto max-w-[500px] mx-auto">
-            <img src="assets/img/wip.png" alt="Work in Progress" className="w-full h-auto" />
+            <img src="/assets/img/wip.png" alt="Work in Progress" className="w-full h-auto" />
           </div>
         </section>
       </main>
