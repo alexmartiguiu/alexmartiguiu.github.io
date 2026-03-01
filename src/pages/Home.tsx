@@ -59,7 +59,7 @@ export default function Home() {
           <Timeline />
         </div>
 
-        {/* Technical expertise section */}
+        {/* Technical expertise section  */}
         <section className="mt-12">
           <div>
             <h2 className="text-lg font-semibold border-b border-gray-100 pb-2">Technical expertise:</h2>
