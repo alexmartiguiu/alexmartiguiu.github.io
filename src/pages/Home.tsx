@@ -24,13 +24,13 @@ export default function Home() {
               </div>
               
               <div className="flex flex-col space-y-2">
-                <Link to="/research" className="linkedin-link text-sm">
+                <Link to="/research" className="linkedin-link text-sm rounded-lg px-3 py-2 transition-all duration-200 hover:scale-105 hover:bg-gray-100">
                   <Microscope className="inline mr-1" size={16} /> Research
                 </Link>
-                <a href="/assets/cv/cv_alexmarti_2026.pdf" className="linkedin-link text-sm" target="_blank" rel="noreferrer">
+                <a href="/assets/cv/cv_alexmarti_2026.pdf" className="linkedin-link text-sm rounded-lg px-3 py-2 transition-all duration-200 hover:scale-105 hover:bg-gray-100" target="_blank" rel="noreferrer">
                   <FileText className="inline mr-1" size={16} /> CV
                 </a>
-                <Link to="/hobbies" className="linkedin-link text-sm">
+                <Link to="/hobbies" className="linkedin-link text-sm rounded-lg px-3 py-2 transition-all duration-200 hover:scale-105 hover:bg-gray-100">
                   <Mountain className="inline mr-1" size={16} /> Hobbies
                 </Link>
               </div>
