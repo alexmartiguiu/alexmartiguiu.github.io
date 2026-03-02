@@ -54,7 +54,7 @@ export default function Home() {
         {/* Full-width Bio Block */}
         <section className="mt-6">
           <p className="text-md leading-relaxed">
-            I am very interested in the intersection of AI, data science, and business. My ongoing research involves multimodality, deep learning and agents for Neuroscience, Human Rights and Climate. Strong technical skills in machine learning (particularly computer vision and NLP), agents,  data analytics and strategic understanding of business and product.
+            I am very interested in the intersection of AI, data science, and business. My ongoing research involves agentic multimodality, Neuroscience, Human Rights and Climate. Strong technical skills in machine learning (particularly computer vision and NLP), agents, data analytics. I also love product and UX/UI design! 👀
           </p>
         </section>
 

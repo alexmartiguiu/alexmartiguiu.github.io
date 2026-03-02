@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Minimalist data analytics icon -->
+  <!-- Bar chart rising -->
+  <rect x="3" y="14" width="3" height="7" fill="currentColor" opacity="0.8"/>
+  <rect x="9" y="10" width="3" height="11" fill="currentColor" opacity="0.9"/>
+  <rect x="15" y="6" width="3" height="15" fill="currentColor" opacity="1"/>
+  
+  <!-- Trend arrow -->
+  <path d="M 3 6 Q 12 2 18 1" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+  <path d="M 16 1 L 18 1 L 18 3" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+</svg>
