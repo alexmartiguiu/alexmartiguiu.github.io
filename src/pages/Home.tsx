@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Laptop, MapPin, Microscope, FileText, Mountain } from 'lucide-react'
 import { Timeline } from './Timeline'
 
 export default function Home() {
@@ -7,34 +8,37 @@ export default function Home() {
       <main className="container mx-auto max-w-[900px] px-6 py-10">
         {/* Top Profile & Bio Row */}
         <div className="flex flex-col md:flex-row gap-8 items-start">
-          {/* 1. Profile Image (Far Left) */}
-          <div className="w-[180px] flex-shrink-0">
-            <img src="/assets/img/imgs_cofounders/alex_logo_japan.JPG" alt="Alex Martí Guiu" className="w-full h-auto rounded-lg shadow-sm" />
+          {/* 1. Left Container: Image + Links */}
+          <div className="flex-1 flex flex-row gap-4">
+            {/* Profile Image */}
+            <div className="w-[180px] flex-shrink-0">
+              <img src="/assets/img/imgs_cofounders/alex_logo_japan.JPG" alt="Alex Martí Guiu" className="w-full h-auto rounded-lg shadow-sm" />
+            </div>
+
+            {/* Basic Info & Links */}
+            <div className="flex flex-col pt-1">
+              <div className="text-left mb-6">
+                <h1 className="text-xl font-semibold whitespace-nowrap">Alex Martí Guiu</h1>
+              <p className="text-sm mt-1 font-medium italic text-gray-600"><Laptop className="inline mr-1" size={16} /> Data Scientist & Engineer</p>
+              <p className="text-sm mt-0.5 font-medium italic text-gray-600"><MapPin className="inline mr-1" size={16} /> Zürich (Switzerland)</p>
+              </div>
+              
+              <div className="flex flex-col space-y-2">
+                <Link to="/research" className="linkedin-link text-sm">
+                  <Microscope className="inline mr-1" size={16} /> Research
+                </Link>
+                <a href="/assets/cv/cv_alexmarti_2026.pdf" className="linkedin-link text-sm" target="_blank" rel="noreferrer">
+                  <FileText className="inline mr-1" size={16} /> CV
+                </a>
+                <Link to="/hobbies" className="linkedin-link text-sm">
+                  <Mountain className="inline mr-1" size={16} /> Hobbies
+                </Link>
+              </div>
+            </div>
           </div>
 
-          {/* 2. Basic Info & Links (Center) */}
-          <div className="flex flex-col flex-shrink-0 pt-1">
-            <div className="text-left mb-6">
-              <h1 className="text-xl font-semibold whitespace-nowrap">Alex Martí Guiu</h1>
-              <p className="text-sm mt-1 font-medium italic text-gray-600">💻 Data Scientist & Engineer</p>
-              <p className="text-sm mt-0.5 font-medium italic text-gray-600">📍 Zürich (Switzerland)</p>
-            </div>
-            
-            <div className="flex flex-col space-y-2">
-              <Link to="/research" className="linkedin-link text-sm">
-                <span className="logo research"></span> Research
-              </Link>
-              <a href="/assets/cv/cv_alexmarti_2026.pdf" className="linkedin-link text-sm" target="_blank" rel="noreferrer">
-                <span className="logo cv"></span> CV
-              </a>
-              <Link to="/hobbies" className="linkedin-link text-sm">
-                <span className="logo hobbies"></span> Hobbies
-              </Link>
-            </div>
-          </div>
-
-          {/* 3. About Me (Far Right) */}
-          <div className="flex-grow pt-1 border-l pl-8 border-gray-200 min-w-[300px]">
+          {/* 2. About Me (Far Right) */}
+          <div className="flex-1 pt-1 border-l pl-8 border-gray-200">
             <h2 className="text-lg font-semibold mb-2">About me!</h2>
             <p className="text-md leading-relaxed">
               Currently studying <span className="text-gray-600 font-semibold">MSc Management, Technology and Economics</span> at
